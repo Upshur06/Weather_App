@@ -6,7 +6,7 @@
  */
 
 // API_KEY for maps api
-let API_KEY = "";
+let API_KEY = "a8e71c9932b20c4ceb0aed183e6a83bb";
 
 /**
  * Retrieve weather data from openweathermap
@@ -27,8 +27,6 @@ getWeatherData = (city) => {
   });
 };
 
-console.log(getWeatherData("Detroit"));
-// getWeatherData("Boston");
 /**
  * Retrieve city input and get the weather data
  * HINT: Use the promise returned from getWeatherData()
@@ -36,6 +34,13 @@ console.log(getWeatherData("Detroit"));
 searchCity = () => {
   const city = document.getElementById("city-input").value;
   // CODE GOES HERE
+  getWeatherData(city)
+    .then((response) => {
+      console.log(response.main.temp);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 /**
